@@ -3,6 +3,7 @@ var obstacles = [];
 var score;
 var gameHeight = 200;
 var stop = false;
+var running = false;
 
 function loadGame() {
     gamePiece = new component(40, 40, "red", 10, gameHeight - 40, "img");
@@ -12,7 +13,10 @@ function loadGame() {
 }
 
 function startGame() {
-    game.start();
+    if(!running) {
+        running = true;
+        game.start();
+    }
 }
 
 var game = {
@@ -36,6 +40,8 @@ var game = {
         var audio = new Audio("http://www.soundjay.com/button/sounds/button-4.mp3");
         audio.play();
         stop = true;
+        running = false;
+        //TODO: reload
     }
 }
 
