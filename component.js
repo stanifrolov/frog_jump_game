@@ -10,7 +10,7 @@ function component(width, height, color, x, y, type) {
     this.gravity = 0;
     this.gravitySpeed = 0;
     this.update = function() {
-        ctx = myGameArea.context;
+        ctx = game.context;
         if (this.type == "text") {
             ctx.font = this.width + " " + this.height;
             ctx.fillStyle = color;
@@ -33,7 +33,7 @@ function component(width, height, color, x, y, type) {
         this.hitBottom();
     }
     this.hitBottom = function() {
-        var rockbottom = myGameArea.canvas.height - this.height;
+        var rockbottom = game.canvas.height - this.height;
         if (this.y > rockbottom) {
             this.y = rockbottom;
             this.gravitySpeed = 0;
